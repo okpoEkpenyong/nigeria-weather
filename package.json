@@ -1,0 +1,27 @@
+{
+  "name": "nigeria-weather",
+  "version": "1.0.0",
+  "description": "FullStack React App for Nigerian Weather",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okpoEkpenyong/nigeria-weather.git"
+  },
+  "author": "okpoE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okpoEkpenyong/nigeria-weather/issues"
+  },
+  "homepage": "https://github.com/okpoEkpenyong/nigeria-weather#readme",
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "pg": "^7.15.1"
+  }
+}
