@@ -5,6 +5,6 @@ cache:
 install: npm install
 services: postgresql
 before_script:
-- psql -c 'create database EmployeeDB;' -U postgres
+- psql -c 'create database weatherDB;' -U postgres
 script: npm test
 after_success: npm run coverage
