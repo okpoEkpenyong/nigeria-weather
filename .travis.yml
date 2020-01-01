@@ -17,7 +17,7 @@ env:
     - CC_TEST_REPORTER_ID=9d541cd9a01118cd71c4211c22b555c8bdf91049e232dd2f8d892221bcbb14e1
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  addons:
+addons:
   hosts:
     - 127.0.0.1 
   
