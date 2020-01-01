@@ -30,18 +30,9 @@ const createTown = async (req, res, err) => {
 
     try {
         const result = await pool.query(`INSERT INTO towns(town_name, state, region) VALUES ($1,$2,$3) RETURNING *`, [town_name, state, region]);
-      //  console.log(`result:`, result.rows)
         return res.status(201).send({ status: 'success', data: result.rows, message: `${town_name} data inserted!` });
     }
      catch (error) { res.status(400).send({ status: 'failure', error: error.detail }) }
-}
-
-const createTown2 = (req, res, err) => {
-    const { town_name, state, region } = req.body;
-
-    pool.query(`INSERT INTO towns (town_name, state, region) VALUES ($1,$2,$3) RETURNING *`, [town_name, state, region])
-        .then(res.status(201).send({ status: 'success', data: res.rows, message: `${town_name} data inserted!` }))
-        .catch(res.status(400).send({ status: failure, error: err }))
 }
 
 const deleteTown = async (req, res, err) => {
