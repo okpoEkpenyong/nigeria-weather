@@ -120,8 +120,7 @@ describe("DELETE /api/v1/auth/towns/:town_name", () => {
       });
     const removedTown = await request(app)
     .delete(`/api/v1/auth/towns/${newTown.body.data[0].town_name}`);
-    console.log('new:',newTown.body.data[0].town_name )
-    console.log('removed:',removedTown.body )
+    console.log('removed:',removedTown )
     expect(removedTown.body).to.include({ message: `${newTown.body.data[0].town_name} town successfully deleted!` });
     expect(removedTown).to.have.status(200);
 
