@@ -7,6 +7,17 @@ const request = require('supertest');
 const { pool } = require("../config");
 
 
+//const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+
+const config = {
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT
+};
+
+console.log("config : "+JSON.stringify(config));
 
 chai.use(chaiHttp);
 const expect = chai.expect;
@@ -71,7 +82,7 @@ describe("GET /api/v1/auth/town", () => {
   it(" responds with an array of town names only", async () => {
      const Towns = await request(app)
      .get("/api/v1/auth/town");
-     console.log('towns:', Towns.body.data[0] )
+     //console.log('towns:', Towns.body.data[0] )
      expect(Towns.body.data[0]).to.have.property("town_name");
      expect(Towns).to.have.status(200);
      expect(Towns.body.data[0]).to.include({
@@ -120,7 +131,7 @@ describe("DELETE /api/v1/auth/towns/:town_name", () => {
       });
     const removedTown = await request(app)
     .delete(`/api/v1/auth/towns/${newTown.body.data[0].town_name}`);
-    console.log('removed:',removedTown )
+    //console.log('removed:',removedTown )
     expect(removedTown.body).to.include({ message: `${newTown.body.data[0].town_name} town successfully deleted!` });
     expect(removedTown).to.have.status(200);
 
