@@ -45,6 +45,8 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "pg": "^7.15.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
     "supertest": "^4.0.2"
   }
 }

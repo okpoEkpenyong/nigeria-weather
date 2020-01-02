@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const path = require('path');
 const townsroute = require('./routes/townsRoutes');
+const weatheroute = require('./routes/weatherRoutes')
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,5 +20,6 @@ app.use((req, res, next) => {
   );
   
   app.use('/', townsroute);
+  app.use('/', weatheroute);
   
    module.exports = app;

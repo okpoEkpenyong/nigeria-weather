@@ -42,10 +42,11 @@ afterEach(async () => {
 });
 
 after(async () => {
-  await pool.query("DROP TABLE towns");
   pool.end();
 });
+
 describe("GET /api/v1/auth/towns", () => {
+  
   it(" responds with an array of towns data", async () => {
     const Towns = await request(app)
       .get("/api/v1/auth/towns");
